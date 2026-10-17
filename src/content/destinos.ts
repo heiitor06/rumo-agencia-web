@@ -32,8 +32,8 @@ export const destinos: DestinoConteudo[] = [
     resumo:
       "Dunas brancas a perder de vista e lagoas de água da chuva entre elas, mais cheias de junho a setembro.",
     foto: lencois,
-    alt: "Lagoa azul entre dunas de areia branca nos Lençóis Maranhenses",
-    credito: { autor: "Léo Castro", url: "https://unsplash.com/photos/s0EKwK7xzT8" },
+    alt: "Vista aérea de dunas brancas com lagoas azuis ao lado de uma faixa de mata verde nos Lençóis Maranhenses",
+    credito: { autor: "Léo Castro", url: "https://unsplash.com/photos/7rZLx5w1Kj0" },
   },
   {
     slug: "chapada-diamantina",

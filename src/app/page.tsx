@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FlaskConical } from "lucide-react";
 import Link from "next/link";
 import { BuscaSaidas } from "@/components/home/busca-saidas";
 import { ConsultaReserva } from "@/components/home/consulta-reserva";
@@ -51,6 +51,13 @@ export default function Home() {
             Buscar saídas
           </h2>
           <BuscaSaidas destinos={destinos.map(({ slug, nome, uf }) => ({ slug, nome, uf }))} resumo={resumo} />
+          <p className="mt-4 flex items-start gap-2 text-[0.95rem] text-pedra">
+            <FlaskConical aria-hidden className="mt-0.5 size-4 shrink-0 text-tinta" />
+            <span>
+              <strong className="font-semibold text-tinta">Projeto de demonstração.</strong> A Rumo é uma agência fictícia: as vagas
+              e reservas funcionam num sistema de teste e nenhum pagamento é cobrado.
+            </span>
+          </p>
         </section>
 
         <section id="destinos" aria-labelledby="destinos-titulo" className="mx-auto max-w-[1600px] px-5 pt-24 pb-24 sm:px-10 lg:px-14 lg:pt-32">
@@ -72,10 +79,12 @@ export default function Home() {
             </h2>
             <ol className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
               {PASSOS.map((p, i) => (
-                <li key={p.titulo} className="relative border-t-2 border-tinta pt-6">
-                  <span aria-hidden className="absolute -top-[9px] left-0 size-4 rounded-full border-2 border-tinta bg-sol" />
-                  <p className="font-display text-xl font-bold text-pedra tabular-nums">Passo {i + 1}</p>
-                  <h3 className="mt-1 font-display text-3xl font-bold uppercase leading-none">{p.titulo}</h3>
+                <li key={p.titulo} className="relative border-t-2 border-tinta pt-10">
+                  <span className="absolute -top-5 left-0 grid size-10 place-items-center rounded-full border-2 border-tinta bg-sol font-display text-xl font-bold tabular-nums">
+                    <span className="sr-only">Passo </span>
+                    {i + 1}
+                  </span>
+                  <h3 className="font-display text-3xl font-bold uppercase leading-none">{p.titulo}</h3>
                   <p className="mt-4 max-w-[34ch] text-pedra">{p.texto}</p>
                 </li>
               ))}

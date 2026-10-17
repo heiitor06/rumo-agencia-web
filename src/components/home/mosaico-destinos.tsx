@@ -33,12 +33,12 @@ export function MosaicoDestinos({ resumo }: { resumo: Promise<ResumoDestinos> })
               sizes={i === 0 ? "(min-width:1024px) 66vw, 100vw" : "(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"}
               className="-z-10 object-cover transition-transform duration-[900ms] ease-[var(--ease-saida)] group-hover:scale-[1.04]"
             />
-            <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-noite/90 via-noite/25 to-transparent" />
-            <span className="text-sm font-medium text-nevoa">
-              {d.regiao} · {d.uf}
-            </span>
-            <span className={`mt-1 font-display font-bold uppercase leading-[0.9] ${i === 0 ? "text-[clamp(2.5rem,5vw,4.5rem)]" : "text-4xl"}`}>
+            <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-noite/95 via-noite/55 via-40% to-noite/0 to-75%" />
+            <span className={`font-display font-bold uppercase leading-[0.9] ${i === 0 ? "text-[clamp(2.5rem,5vw,4.5rem)]" : "text-4xl"}`}>
               {d.nome}
+            </span>
+            <span className="mt-1 text-sm font-medium text-nevoa">
+              {d.regiao} · {d.uf}
             </span>
             <span className="mt-3 block min-h-5">
               <Suspense fallback={<span className="block h-5 w-48 animate-pulse rounded bg-papel/15" />}>

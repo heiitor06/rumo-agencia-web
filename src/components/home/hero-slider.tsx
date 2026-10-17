@@ -17,7 +17,7 @@ import {
 import { flushSync } from "react-dom";
 import type { DestinoConteudo } from "@/content/destinos";
 import type { ResumoDestinos } from "@/lib/resumo";
-import { ProximaSaida } from "./proxima-saida";
+import { ProximaSaida, VagasDoCard } from "./proxima-saida";
 
 const DURACAO_EXPANSAO = 900;
 const INTERVALO_AUTOPLAY = 7000;
@@ -185,20 +185,19 @@ export function HeroSlider({ destinos, resumo }: { destinos: DestinoConteudo[]; 
             aria-live="polite"
             className={`max-w-xl transition-[opacity,translate] duration-300 ease-out ${saindo ? "-translate-y-3 opacity-0" : ""}`}
           >
-            <p className="hero-linha flex items-center gap-3 text-sm font-medium tracking-wide text-nevoa" style={atraso(0)}>
-              <span aria-hidden className="h-px w-8 bg-sol" />
-              {ativo.regiao} · {ativo.uf}
-            </p>
-            <h1 className="mt-4 font-display text-[clamp(3.25rem,9vw,6rem)] font-bold uppercase leading-[0.88] tracking-[-0.01em]">
+            <h1 className="font-display text-[clamp(3.25rem,9vw,6rem)] font-bold uppercase leading-[0.88] tracking-[-0.01em]">
               {ativo.linhas.map((linha, i) => (
                 <span key={linha} className="block overflow-hidden pb-1">
-                  <span className="hero-linha block" style={atraso(1 + i)}>
+                  <span className="hero-linha block" style={atraso(i)}>
                     {linha}
                   </span>
                 </span>
               ))}
             </h1>
-            <p className="hero-linha mt-5 max-w-md text-base leading-relaxed text-nevoa sm:text-lg" style={atraso(3)}>
+            <p className="hero-linha mt-3 font-display text-xl font-bold tracking-wide text-nevoa uppercase sm:text-2xl" style={atraso(2)}>
+              {ativo.regiao} · {ativo.uf}
+            </p>
+            <p className="hero-linha mt-4 max-w-md text-base leading-relaxed text-nevoa sm:text-lg" style={atraso(3)}>
               {ativo.resumo}
             </p>
             <div className="hero-linha mt-7 flex flex-wrap items-center gap-x-6 gap-y-4" style={atraso(4)}>
@@ -235,11 +234,15 @@ export function HeroSlider({ destinos, resumo }: { destinos: DestinoConteudo[]; 
                       className="group relative block aspect-[3/4] w-[132px] overflow-hidden rounded-card text-left shadow-card outline-offset-4 sm:w-[180px] lg:w-[min(15vw,232px)]"
                     >
                       <Image src={d.foto} alt="" fill sizes="(min-width:1024px) 232px, 180px" className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
-                      <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-noite/85 via-noite/10 to-transparent" />
+                      <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-noite/90 via-noite/25 via-45% to-transparent" />
                       <span className="absolute inset-x-3 bottom-3 block">
-                        <span aria-hidden className="mb-2 block h-0.5 w-6 bg-sol" />
-                        <span className="block text-xs text-nevoa">{d.uf}</span>
                         <span className="block font-display text-lg font-bold uppercase leading-tight sm:text-xl">{d.nome}</span>
+                        <span className="mt-1 block text-xs font-medium text-nevoa sm:text-sm">
+                          {d.uf}
+                          <Suspense fallback={null}>
+                            <VagasDoCard resumo={resumo} nome={d.nome} />
+                          </Suspense>
+                        </span>
                         <span className="sr-only">: mostrar este destino</span>
                       </span>
                     </button>
