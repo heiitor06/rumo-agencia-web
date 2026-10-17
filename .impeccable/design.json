@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T12:00:00-03:00",
+  "title": "Design System: Rumo",
+  "extensions": {
+    "colorMeta": {
+      "sol": { "role": "primary", "displayName": "Sol", "canonical": "#f2a900", "tonalRamp": ["#3d2a00", "#5c3f00", "#7d5600", "#a87300", "#d99600", "#f2a900", "#ffd36b", "#fff1cc"] },
+      "sol-forte": { "role": "primary", "displayName": "Sol Forte", "canonical": "#d99600", "tonalRamp": ["#352400", "#523700", "#734d00", "#9a6a00", "#d99600", "#f2b233", "#ffd98a", "#fff3d6"] },
+      "noite": { "role": "neutral", "displayName": "Noite", "canonical": "#0e0c0a", "tonalRamp": ["#0e0c0a", "#1f1c18", "#35302a", "#4f4840", "#6d665c", "#948c80", "#c3bcb0", "#ede8df"] },
+      "tinta": { "role": "neutral", "displayName": "Tinta", "canonical": "#15130f", "tonalRamp": ["#15130f", "#26231d", "#3b3730", "#55504a", "#736d64", "#9a9388", "#c7c0b5", "#efebe3"] },
+      "papel": { "role": "neutral", "displayName": "Papel", "canonical": "#faf9f6", "tonalRamp": ["#2a2823", "#4a4741", "#6e6a62", "#97928a", "#c1bcb2", "#e3dfd7", "#f3f1ec", "#faf9f6"] },
+      "areia": { "role": "neutral", "displayName": "Areia", "canonical": "#efebe3", "tonalRamp": ["#2b2720", "#4b463d", "#6f685d", "#968e81", "#bfb7a9", "#ddd7cc", "#efebe3", "#f8f6f1"] },
+      "pedra": { "role": "neutral", "displayName": "Pedra", "canonical": "#645e55", "tonalRamp": ["#1d1b18", "#322e29", "#4a453e", "#645e55", "#7f786e", "#a09a90", "#c6c1b9", "#ebe8e3"] },
+      "linha": { "role": "neutral", "displayName": "Linha", "canonical": "#ddd7cc", "tonalRamp": ["#2c2924", "#4c4740", "#706a60", "#988f83", "#bdb5a8", "#ddd7cc", "#ece8e0", "#f8f6f2"] },
+      "nevoa": { "role": "neutral", "displayName": "Névoa", "canonical": "rgb(250 249 246 / 0.82)", "tonalRamp": ["rgb(250 249 246 / 0.15)", "rgb(250 249 246 / 0.25)", "rgb(250 249 246 / 0.4)", "rgb(250 249 246 / 0.55)", "rgb(250 249 246 / 0.68)", "rgb(250 249 246 / 0.82)", "rgb(250 249 246 / 0.92)", "rgb(250 249 246 / 1)"] },
+      "alerta": { "role": "error", "displayName": "Alerta", "canonical": "#b42318", "tonalRamp": ["#3a0a06", "#5c120b", "#821a11", "#b42318", "#d64a3e", "#ec8178", "#f7bcb6", "#fdeceb"] },
+      "ok": { "role": "success", "displayName": "Ok", "canonical": "#1f7a4d", "tonalRamp": ["#082a1a", "#0e3f27", "#155a37", "#1f7a4d", "#2f9c66", "#5fbf8e", "#a4dfc0", "#e3f5eb"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Nome do destino nos heros, em linhas que sobem de trás de máscara." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de seção em caixa alta." },
+      "title": { "displayName": "Title", "purpose": "Passos, nomes de pacote, legendas de fieldset, datas de saída." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido em Barlow, até 60-62ch." },
+      "label": { "displayName": "Label", "purpose": "Rótulos de busca e cabeçalhos de coluna, pequenos e espaçados, em Pedra." }
+    },
+    "shadows": [
+      { "name": "card", "value": "0 28px 50px -28px rgb(14 12 10 / 0.6)", "purpose": "Só em superfícies que flutuam: cards de foto, busca sobre o hero, cotador, painéis de reserva." }
+    ],
+    "motion": [
+      { "name": "ease-saida", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Entradas: linhas do hero (700ms), card que entra na fila (600ms), surgimento (500ms), zoom de foto no hover." },
+      { "name": "ease-expansao", "value": "cubic-bezier(0.7, 0, 0.18, 1)", "purpose": "Expansão card → tela cheia (900ms), morph da foto entre rotas (650ms), deslize direcional (420ms)." },
+      { "name": "expansao-hero", "value": "900ms WAAPI, raio 14px -> 0", "purpose": "Camada nasce sobre o card e cresce até cobrir o hero; a fila desliza em 85% da duração." },
+      { "name": "morph", "value": "650ms, blur 2px a 35%", "purpose": "Foto do destino com nome compartilhado destino-<slug>: home -> /destinos/[slug] -> faixa do pacote." },
+      { "name": "nav-forward / nav-back", "value": "±64px, fade-out 160ms, fade-in 240ms após 160ms, deslize 420ms", "purpose": "Deslize direcional entre rotas; o cabeçalho (site-header) fica ancorado com animação nula." },
+      { "name": "autoplay", "value": "7000ms", "purpose": "Troca automática do hero; pausa com ponteiro, foco, aba oculta ou botão." },
+      { "name": "movimento-reduzido", "value": "prefers-reduced-motion: reduce", "purpose": "Transições de rota instantâneas, cascatas desligadas, expansão vira troca direta, autoplay e botão de pausa removidos." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "contêiner", "value": "1600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão Sol",
+      "kind": "button",
+      "refersTo": "botao-sol",
+      "description": "Ação primária: Ver pacotes, Ver saídas, Reservar.",
+      "html": "<button class=\"ds-botao-sol\">Ver pacotes</button>",
+      "css": ".ds-botao-sol { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 28px; border: none; border-radius: 9999px; background: var(--color-sol, #f2a900); color: var(--color-tinta, #15130f); font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.125rem; letter-spacing: 0.025em; text-transform: uppercase; cursor: pointer; transition: background-color 200ms, translate 200ms; } .ds-botao-sol:hover { background: var(--color-sol-forte, #d99600); translate: 0 -2px; } .ds-botao-sol:focus-visible { outline: 2px solid var(--color-sol, #f2a900); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botão Contorno",
+      "kind": "button",
+      "refersTo": "botao-contorno",
+      "description": "Ação secundária sobre papel: Roteiro completo e preço.",
+      "html": "<button class=\"ds-botao-contorno\">Roteiro completo e preço <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-botao-contorno { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border: 1px solid rgb(21 19 15 / 0.25); border-radius: 9999px; background: transparent; color: #15130f; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.125rem; letter-spacing: 0.025em; text-transform: uppercase; cursor: pointer; transition: background-color 150ms, color 150ms, border-color 150ms; } .ds-botao-contorno:hover { border-color: #15130f; background: #15130f; color: #faf9f6; } .ds-botao-contorno:focus-visible { outline: 2px solid #f2a900; outline-offset: 3px; }"
+    },
+    {
+      "name": "Campo de entrada",
+      "kind": "input",
+      "refersTo": "entrada",
+      "description": "Campo de formulário de reserva.",
+      "html": "<label class=\"ds-rotulo\">Nome completo<input class=\"ds-entrada\" placeholder=\"Como no documento\" /></label>",
+      "css": ".ds-rotulo { display: grid; gap: 6px; font-family: 'Barlow', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; color: #15130f; } .ds-entrada { min-height: 48px; width: 100%; padding: 0 16px; border: 1px solid #ddd7cc; border-radius: 8px; background: #fff; color: #15130f; font: 400 1rem 'Barlow', system-ui, sans-serif; transition: border-color 150ms; } .ds-entrada::placeholder { color: #645e55; } .ds-entrada:hover { border-color: #645e55; } .ds-entrada:focus-visible { outline: 2px solid #f2a900; outline-offset: 3px; } .ds-entrada[aria-invalid=true] { border-color: #b42318; }"
+    },
+    {
+      "name": "Cabeçalho",
+      "kind": "nav",
+      "refersTo": "cabecalho",
+      "description": "Cabeçalho fixo em papel após rolar; transparente sobre hero de foto.",
+      "html": "<header class=\"ds-cabecalho\"><a class=\"ds-marca\" href=\"#\">Rumo</a><nav><a class=\"ds-link-nav\" href=\"#\" aria-current=\"page\">Destinos</a><a class=\"ds-link-nav\" href=\"#\">Como funciona</a><a class=\"ds-link-nav\" href=\"#\">Minha reserva</a></nav></header>",
+      "css": ".ds-cabecalho { display: flex; align-items: center; justify-content: space-between; height: 80px; padding: 0 40px; background: rgb(250 249 246 / 0.95); border-bottom: 1px solid #ddd7cc; color: #15130f; backdrop-filter: blur(4px); } .ds-cabecalho nav { display: flex; gap: 36px; } .ds-marca { font: 700 1.5rem 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: inherit; text-decoration: none; } .ds-link-nav { position: relative; padding: 8px 0; font: 500 0.95rem 'Barlow', system-ui, sans-serif; color: inherit; text-decoration: none; } .ds-link-nav::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #f2a900; transform: scaleX(0); transform-origin: left; transition: transform 300ms; } .ds-link-nav:hover::after, .ds-link-nav[aria-current=page]::after { transform: scaleX(1); } .ds-link-nav:focus-visible { outline: 2px solid #f2a900; outline-offset: 3px; }"
+    },
+    {
+      "name": "Card de destino",
+      "kind": "card",
+      "refersTo": "card-destino",
+      "description": "Card de foto retrato da fila do hero e do mosaico, com vagas em sol.",
+      "html": "<a class=\"ds-card-destino\" href=\"#\"><span class=\"ds-card-veu\"></span><span class=\"ds-card-nome\">Jalapão</span><span class=\"ds-card-meta\">TO · <strong>7 vagas</strong></span></a>",
+      "css": ".ds-card-destino { position: relative; display: flex; flex-direction: column; justify-content: flex-end; width: 220px; aspect-ratio: 3/4; padding: 12px; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #a87300, #35302a); color: #faf9f6; text-decoration: none; box-shadow: 0 28px 50px -28px rgb(14 12 10 / 0.6); } .ds-card-veu { position: absolute; inset: 0; background: linear-gradient(to top, rgb(14 12 10 / 0.9), rgb(14 12 10 / 0.25) 45%, transparent); } .ds-card-nome, .ds-card-meta { position: relative; } .ds-card-nome { font: 700 1.25rem/1.1 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; } .ds-card-meta { margin-top: 4px; font: 500 0.875rem 'Barlow', system-ui, sans-serif; color: rgb(250 249 246 / 0.82); } .ds-card-meta strong { font-weight: 600; color: #f2a900; } .ds-card-destino:focus-visible { outline: 2px solid #f2a900; outline-offset: 4px; }"
+    },
+    {
+      "name": "Barra de lotação",
+      "kind": "custom",
+      "refersTo": "vagas",
+      "description": "Vagas restantes sobre papel; parte cheia é o vendido; Últimas N em alerta.",
+      "html": "<span class=\"ds-vagas\"><span class=\"ds-vagas-txt ds-poucas\">Últimas 3 vagas <span>de 24</span></span><span class=\"ds-vagas-trilho\"><span style=\"width:88%\"></span></span></span>",
+      "css": ".ds-vagas { display: flex; flex-direction: column; gap: 6px; min-width: 144px; font-family: 'Barlow', system-ui, sans-serif; } .ds-vagas-txt { font-size: 0.875rem; font-weight: 600; font-variant-numeric: tabular-nums; color: #15130f; } .ds-vagas-txt span { font-weight: 400; color: #645e55; } .ds-vagas-txt.ds-poucas { color: #b42318; } .ds-vagas-trilho { display: block; height: 6px; overflow: hidden; border-radius: 9999px; background: #ddd7cc; } .ds-vagas-trilho span { display: block; height: 100%; border-radius: 9999px; background: #15130f; }"
+    },
+    {
+      "name": "Segmentado de pagamento",
+      "kind": "chip",
+      "refersTo": "segmentado",
+      "description": "Escolha de forma de pagamento em pílula dividida.",
+      "html": "<div class=\"ds-seg\"><label><input type=\"radio\" name=\"f\" checked>PIX</label><label><input type=\"radio\" name=\"f\">Boleto</label><label><input type=\"radio\" name=\"f\">Cartão</label></div>",
+      "css": ".ds-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border-radius: 9999px; background: #ddd7cc; box-shadow: 0 0 0 1px #ddd7cc; } .ds-seg label { display: flex; align-items: center; justify-content: center; min-height: 44px; background: #fff; font: 600 0.875rem 'Barlow', system-ui, sans-serif; color: #15130f; cursor: pointer; } .ds-seg input { position: absolute; opacity: 0; width: 1px; height: 1px; } .ds-seg label:has(:checked) { background: #15130f; color: #faf9f6; } .ds-seg label:has(:focus-visible) { outline: 2px solid #f2a900; outline-offset: -4px; }"
+    },
+    {
+      "name": "Aviso de demonstração",
+      "kind": "custom",
+      "refersTo": "aviso-demo",
+      "description": "Aviso visível de projeto de demonstração abaixo da busca.",
+      "html": "<p class=\"ds-aviso\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 2v7.31\"/><path d=\"M14 9.3V1.99\"/><path d=\"M8.5 2h7\"/><path d=\"M14 9.3a6.5 6.5 0 1 1-4 0\"/><path d=\"M5.52 16h12.96\"/></svg><span><strong>Projeto de demonstração.</strong> A Rumo é uma agência fictícia: as vagas e reservas funcionam num sistema de teste e nenhum pagamento é cobrado.</span></p>",
+      "css": ".ds-aviso { display: flex; align-items: flex-start; gap: 8px; font: 400 0.95rem/1.5 'Barlow', system-ui, sans-serif; color: #645e55; } .ds-aviso svg { flex-shrink: 0; margin-top: 3px; color: #15130f; } .ds-aviso strong { font-weight: 600; color: #15130f; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Janela do Destino",
+    "overview": "A Rumo executa o padrão da categoria de turismo sem atalho: a fotografia do destino ocupa a tela inteira sob um véu quente quase preto, e os cards em fila são literalmente as próximas telas. O card escolhido cresce até virar o fundo, e a mesma foto voa da home para a página do destino e daí para a faixa do pacote. O movimento conta para onde o visitante está indo; nunca decora.\n\nFora da foto, o mundo é papel quente com tinta quase preta, display condensado em caixa alta e um único acento, o sol, reservado para ação primária, progresso e vagas sobre fundo escuro. A densidade é editorial nas páginas internas (listas divididas por fios, sem caixas dentro de caixas) e cinematográfica nas aberturas. Tudo que parece dado é dado vivo da API; onde a demo simula, ela diz que simula.",
+    "keyCharacteristics": [
+      "Fotografia em tela cheia sob véu noite, nunca foto solta sem véu.",
+      "Barlow Condensed 700 em caixa alta para tudo que é título, número ou rótulo de ação; Barlow para leitura.",
+      "Um acento só (sol), usado com parcimônia.",
+      "Cards de foto com raio de 14px, sem borda, sombra longa e suave.",
+      "Continuidade espacial entre rotas: a foto compartilha nome de transição, a página desliza na direção da navegação, o cabeçalho não se mexe."
+    ],
+    "rules": [
+      { "name": "The Um Sol Rule", "body": "Sol é o único acento. Ele marca ação primária, progresso, foco e vagas; nunca vira fundo de seção, gradiente ou decoração.", "section": "colors" },
+      { "name": "The Vagas Em Sol Rule", "body": "Sobre noite ou foto, a contagem de vagas é sempre Sol em semibold (chip \"Próxima saída\", cards da fila, mosaico, barra de lotação no tom escuro). Sobre papel, Sol não passa contraste de texto: lá a vaga fica em Tinta com a barra de lotação, e \"Últimas N vagas\" (5 ou menos) vira Alerta.", "section": "colors" },
+      { "name": "The Demonstração Visível Rule", "body": "O aviso de projeto de demonstração aparece logo abaixo da busca na home (Tinta em negrito + Pedra) e no rodapé, e o pagamento simulado se anuncia como simulado. Nenhuma superfície nova pode esconder ou suavizar esse aviso.", "section": "colors" },
+      { "name": "The Título Sem Chapéu Rule", "body": "Nenhum título leva eyebrow ou kicker acima. A informação de apoio (região · UF, cidade · região) vem abaixo do título, em display Névoa.", "section": "typography" },
+      { "name": "The Caixa Alta É Display Rule", "body": "Caixa alta só existe em Barlow Condensed (títulos, botões, datas, nav do menu móvel) ou no rótulo pequeno espaçado; texto corrido nunca é caixa alta.", "section": "typography" },
+      { "name": "The Véu Mais Denso No Celular Rule", "body": "No desktop o véu do hero escurece da esquerda (80%) para a direita (8%), com reforço na base e no topo. Abaixo de 768px o texto ocupa a largura toda, então o véu vira vertical e cobre a foto inteira com no mínimo 68% na faixa do texto, para manter 4.5:1 mesmo sobre areia clara.", "section": "layout" },
+      { "name": "The Sombra Só Flutua Rule", "body": "Listas, linhas de saída e seções não ganham sombra. Se não está sobreposto a outra camada, é plano e separado por fio.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do colocar toda foto de destino sob o véu Noite; abaixo de 768px, usar o véu vertical com pelo menos 68% na faixa do texto.",
+      "Do usar Sol (#f2a900) só para ação primária, progresso, foco e vagas sobre fundo escuro.",
+      "Do dar à foto de um destino o mesmo nome de transição (destino-<slug>) em toda superfície onde ela é protagonista.",
+      "Do marcar cada link de navegação com nav-forward ou nav-back conforme o sentido da viagem.",
+      "Do manter o aviso de projeto de demonstração visível na home e no rodapé, e anunciar o pagamento como simulado.",
+      "Do desligar todo deslocamento e o autoplay sob prefers-reduced-motion.",
+      "Do separar listas de saídas e pacotes com fios Linha, não com cards."
+    ],
+    "donts": [
+      "Don't colocar eyebrow ou kicker acima de títulos; apoio vai abaixo.",
+      "Don't escrever vagas em Sol sobre papel ou areia: não passa contraste; use Tinta e Alerta.",
+      "Don't usar sombra dura, deslocada lateralmente, ou sombra em listas e seções planas.",
+      "Don't adicionar um segundo acento de cor ou gradiente decorativo.",
+      "Don't usar caixa alta em Barlow de texto corrido.",
+      "Don't animar o cabeçalho na troca de rota."
+    ]
+  }
+}
