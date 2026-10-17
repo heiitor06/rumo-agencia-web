@@ -110,10 +110,14 @@
   /* No celular o texto ocupa a largura toda: o véu escurece a foto inteira, não só a esquerda. */
   @media (width < 48rem) {
     .veu-hero {
-      background:
-        linear-gradient(0deg, rgb(14 12 10 / 0.75) 0%, rgb(14 12 10 / 0.1) 55%),
-        linear-gradient(180deg, rgb(14 12 10 / 0.55) 0%, rgb(14 12 10 / 0) 25%),
-        rgb(14 12 10 / 0.42);
+      /* Faixa do texto (de ~25% a ~70% da altura) com véu de 0.68: mesmo sobre areia branca o texto passa de 4.5:1. */
+      background: linear-gradient(
+        180deg,
+        rgb(14 12 10 / 0.5) 0%,
+        rgb(14 12 10 / 0.68) 24%,
+        rgb(14 12 10 / 0.68) 72%,
+        rgb(14 12 10 / 0.85) 100%
+      );
     }
   }
 }
