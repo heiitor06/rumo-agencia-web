@@ -178,7 +178,7 @@ export function HeroSlider({ destinos, resumo }: { destinos: DestinoConteudo[]; 
 
       <div aria-hidden className="veu-hero pointer-events-none absolute inset-0 -z-[5]" />
 
-      <div className="relative mx-auto flex h-full max-w-[1600px] flex-col px-5 pb-6 pt-28 sm:px-10 lg:px-14 lg:pb-10">
+      <div className="relative mx-auto flex h-full max-w-[1600px] flex-col px-5 pt-24 pb-16 sm:px-10 sm:pt-28 lg:px-14 lg:pb-16">
         <div className="grid flex-1 items-end gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center">
           <div
             key={ativo.slug}

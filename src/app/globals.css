@@ -107,6 +107,15 @@
       linear-gradient(0deg, rgb(14 12 10 / 0.72) 0%, rgb(14 12 10 / 0) 40%),
       linear-gradient(180deg, rgb(14 12 10 / 0.5) 0%, rgb(14 12 10 / 0) 22%);
   }
+  /* No celular o texto ocupa a largura toda: o véu escurece a foto inteira, não só a esquerda. */
+  @media (width < 48rem) {
+    .veu-hero {
+      background:
+        linear-gradient(0deg, rgb(14 12 10 / 0.75) 0%, rgb(14 12 10 / 0.1) 55%),
+        linear-gradient(180deg, rgb(14 12 10 / 0.55) 0%, rgb(14 12 10 / 0) 25%),
+        rgb(14 12 10 / 0.42);
+    }
+  }
 }
 
 /* Texto do hero: cada linha sobe de trás de uma máscara, em cascata. */

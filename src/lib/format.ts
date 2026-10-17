@@ -2,6 +2,10 @@ const moedaFmt = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "
 const moedaCurtaFmt = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 
 export const moeda = (valor: number) => moedaFmt.format(valor);
+
+const percentualFmt = new Intl.NumberFormat("pt-BR", { style: "percent", maximumFractionDigits: 1 });
+/** A API manda percentuais como fração (0.1 = 10%). */
+export const percentual = (fracao: number) => percentualFmt.format(fracao);
 export const moedaCurta = (valor: number) => moedaCurtaFmt.format(valor);
 
 const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];

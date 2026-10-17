@@ -6,7 +6,7 @@ import { useEffect, useId, useRef, useState, useTransition } from "react";
 import { cotar, type ResultadoCotacao } from "@/app/actions";
 import { Vagas } from "@/components/destino/vagas";
 import { Stepper } from "@/components/ui/stepper";
-import { dataCurta, moeda, plural } from "@/lib/format";
+import { dataCurta, moeda, percentual, plural } from "@/lib/format";
 import type { FormaPagamento } from "@/lib/types";
 
 type SaidaOpcao = { id: number; dataPartida: string; dataRetorno: string; vagas: number; capacidade: number };
@@ -111,8 +111,8 @@ export function Cotador({ saidas, saidaInicial, paxInicial }: { saidas: SaidaOpc
         ) : (
           <dl className={`space-y-2 transition-opacity ${carregando || !c ? "opacity-50" : ""}`}>
             <Linha rotulo={`${plural(pax, "passageiro", "passageiros")} × ${c ? moeda(c.valorUnitario) : "…"}`} valor={c ? moeda(c.subtotal) : "…"} />
-            {c && c.valorDesconto > 0 && <Linha rotulo={`Desconto de grupo (${c.percentualDesconto}%)`} valor={`− ${moeda(c.valorDesconto)}`} destaque />}
-            {c && c.taxaParcelamento > 0 && <Linha rotulo={`Taxa do parcelamento (${c.taxaParcelamento}%)`} valor={`+ ${moeda(c.valorCobrado - c.valorTotal)}`} />}
+            {c && c.valorDesconto > 0 && <Linha rotulo={`Desconto de grupo (${percentual(c.percentualDesconto)})`} valor={`− ${moeda(c.valorDesconto)}`} destaque />}
+            {c && c.taxaParcelamento > 0 && <Linha rotulo={`Taxa do parcelamento (${percentual(c.taxaParcelamento)})`} valor={`+ ${moeda(c.valorCobrado - c.valorTotal)}`} />}
             <div className="flex items-end justify-between gap-4 pt-3">
               <dt className="font-semibold">Total</dt>
               <dd className="text-right">
@@ -146,7 +146,7 @@ function Linha({ rotulo, valor, destaque }: { rotulo: string; valor: string; des
   return (
     <div className="flex justify-between gap-4">
       <dt className="text-pedra">{rotulo}</dt>
-      <dd className={`tabular-nums ${destaque ? "font-semibold text-ok" : ""}`}>{valor}</dd>
+      <dd className={`whitespace-nowrap tabular-nums ${destaque ? "font-semibold text-ok" : ""}`}>{valor}</dd>
     </div>
   );
 }

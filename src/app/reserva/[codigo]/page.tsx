@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import { PagamentoDemo } from "@/components/reserva/pagamento-demo";
 import { TransicaoPagina } from "@/components/transicao-pagina";
 import { api, ApiError, mensagemDeErro } from "@/lib/api";
-import { dataLonga, moeda, plural } from "@/lib/format";
+import { dataLonga, moeda, percentual, plural } from "@/lib/format";
 import type { FormaPagamento, StatusPagamento, StatusReserva } from "@/lib/types";
 
 export const metadata: Metadata = { title: "Sua reserva", robots: { index: false } };
@@ -79,7 +79,7 @@ async function Conteudo({ params, searchParams }: PageProps<"/reserva/[codigo]">
             <Valor rotulo="Falta" valor={moeda(r.saldo)} destaque={r.saldo > 0} />
           </dl>
           {r.percentualDesconto > 0 && (
-            <p className="px-6 pb-6 text-sm text-nevoa sm:px-8">Inclui {r.percentualDesconto}% de desconto de grupo.</p>
+            <p className="px-6 pb-6 text-sm text-nevoa sm:px-8">Inclui {percentual(r.percentualDesconto)} de desconto de grupo.</p>
           )}
         </section>
 
