@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Padrão</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;font-family:Arial,sans-serif;background:#111827;color:#fff;position:relative}
+.photo{position:absolute;inset:0;background:linear-gradient(180deg,#5D7A99 0%,#9A8467 60%,#3B2E22 100%)}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,0) 60%)}
+nav{position:absolute;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 56px}
+.logo{font-size:24px;font-weight:700}
+.links{display:flex;gap:36px;font-size:15px}
+.copy{position:absolute;left:56px;top:220px;width:560px}
+.copy small{font-size:18px}
+.copy h1{font-size:110px;line-height:.92;font-weight:800;text-transform:uppercase;margin:14px 0}
+.copy p{font-size:16px;line-height:1.5;opacity:.85}
+.btn{display:inline-block;margin-top:24px;border:2px solid #fff;border-radius:999px;padding:12px 24px;font-size:16px}
+.cards{position:absolute;left:660px;top:420px;display:flex;gap:20px}
+.c{width:200px;height:290px;border-radius:14px;background:#7A8C6E;position:relative}
+.c:nth-child(2){background:#5B7EA0}.c:nth-child(3){background:#A7774F}.c:nth-child(4){background:#6D6D8A}
+.c b{position:absolute;left:14px;bottom:16px;font-size:24px;text-transform:uppercase}
+.bar{position:absolute;left:56px;bottom:40px;display:flex;align-items:center;gap:20px}
+.bar span{width:44px;height:44px;border:2px solid #fff;border-radius:50%}
+.bar i{display:block;width:600px;height:3px;background:#F59E0B}
+.n{position:absolute;right:56px;bottom:30px;font-size:56px;font-weight:800}
+</style></head><body>
+<div class="photo"></div><div class="shade"></div>
+<nav><div class="logo">RUMO</div><div class="links"><span>Home</span><span>Destinos</span><span>Pacotes</span><span>Contato</span></div></nav>
+<div class="copy"><small>Bahia · Brasil</small><h1>Chapada Diamantina</h1><p>Cachoeiras, cânions e grutas no coração da Bahia, com trilhas para todos os níveis.</p><div class="btn">Descobrir destino</div></div>
+<div class="cards"><div class="c"><b>Jalapão</b></div><div class="c"><b>Noronha</b></div><div class="c"><b>Lençóis</b></div><div class="c"><b>Bonito</b></div></div>
+<div class="bar"><span></span><span></span><i></i></div><div class="n">02</div>
+</body></html>

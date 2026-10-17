@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@theme {
+  --color-noite: #0e0c0a;
+  --color-tinta: #15130f;
+  --color-papel: #faf9f6;
+  --color-areia: #efebe3;
+  --color-pedra: #645e55;
+  --color-linha: #ddd7cc;
+  --color-sol: #f2a900;
+  --color-sol-forte: #d99600;
+  --color-nevoa: rgb(250 249 246 / 0.82);
+  --color-alerta: #b42318;
+  --color-ok: #1f7a4d;
+
+  --font-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-barlow), system-ui, sans-serif;
+
+  --radius-card: 14px;
+  --shadow-card: 0 28px 50px -28px rgb(14 12 10 / 0.6);
+  --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-papel font-sans text-tinta antialiased;
+    font-size: 1.0625rem;
+  }
+  ::selection {
+    background: var(--color-sol);
+    color: var(--color-tinta);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sol);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  a {
+    text-underline-offset: 0.2em;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .botao-sol {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-sol px-7 font-display text-lg font-bold tracking-wide text-tinta uppercase transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-sol-forte disabled:pointer-events-none disabled:opacity-50;
+  }
+  .botao-contorno {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-tinta/25 px-6 font-display text-lg font-bold tracking-wide uppercase transition-colors hover:border-tinta hover:bg-tinta hover:text-papel disabled:pointer-events-none disabled:opacity-50;
+  }
+  .botao-redondo {
+    @apply grid size-11 shrink-0 place-items-center rounded-full border border-papel/40 text-papel transition-colors hover:border-papel hover:bg-papel hover:text-tinta;
+  }
+  .botao-stepper {
+    @apply grid size-11 place-items-center rounded-full border border-linha text-tinta transition-colors hover:border-tinta disabled:opacity-35 disabled:hover:border-linha;
+  }
+  .link-nav {
+    @apply relative py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-sol after:transition-transform after:duration-300 hover:after:scale-x-100 aria-[current=page]:after:scale-x-100;
+  }
+  .link-claro {
+    @apply text-nevoa underline-offset-4 transition-colors hover:text-papel hover:underline;
+  }
+  .link-texto {
+    @apply font-medium underline decoration-sol decoration-2 underline-offset-4 transition-colors hover:decoration-tinta;
+  }
+
+  .campo-busca {
+    @apply flex min-h-16 flex-col justify-center gap-1 bg-papel px-5 py-3;
+  }
+  .rotulo-busca {
+    @apply text-xs font-semibold tracking-[0.14em] text-pedra uppercase;
+  }
+  .select-busca {
+    @apply -ml-1 w-full cursor-pointer appearance-none bg-transparent pr-6 font-display text-2xl font-bold uppercase;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2315130f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+  .rotulo {
+    @apply text-sm font-semibold text-tinta;
+  }
+  .entrada {
+    @apply min-h-12 w-full rounded-lg border border-linha bg-white px-4 text-base text-tinta transition-colors placeholder:text-pedra hover:border-pedra aria-invalid:border-alerta;
+  }
+  .erro-campo {
+    @apply text-sm font-medium text-alerta;
+  }
+
+  .cabecalho {
+    @apply border-b border-linha bg-papel/95 text-tinta backdrop-blur-sm transition-[background-color,color,border-color] duration-300;
+  }
+  body:has([data-hero-foto]) .cabecalho:not([data-rolou="true"], [data-aberto="true"]) {
+    @apply border-transparent bg-transparent text-papel backdrop-blur-none;
+  }
+
+  .veu-hero {
+    background:
+      linear-gradient(90deg, rgb(14 12 10 / 0.8) 0%, rgb(14 12 10 / 0.45) 42%, rgb(14 12 10 / 0.08) 75%),
+      linear-gradient(0deg, rgb(14 12 10 / 0.72) 0%, rgb(14 12 10 / 0) 40%),
+      linear-gradient(180deg, rgb(14 12 10 / 0.5) 0%, rgb(14 12 10 / 0) 22%);
+  }
+}
+
+/* Texto do hero: cada linha sobe de trás de uma máscara, em cascata. */
+@keyframes linha-sobe {
+  from {
+    opacity: 0;
+    transform: translateY(105%);
+  }
+}
+.hero-linha {
+  animation: linha-sobe 700ms var(--ease-saida) both;
+}
+
+@keyframes card-entra {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+}
+.card-entra {
+  animation: card-entra 600ms var(--ease-saida) both;
+}
+
+@keyframes surge {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+.surge {
+  animation: surge 500ms var(--ease-saida) both;
+}
+
+/* ---------- Transições entre páginas (React <ViewTransition>) ---------- */
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(.morph) {
+  animation-duration: 650ms;
+  animation-timing-function: cubic-bezier(0.7, 0, 0.18, 1);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  35% {
+    filter: blur(2px);
+  }
+}
+
+::view-transition-old(.nav-forward) {
+  --desloca: -64px;
+  animation:
+    160ms ease-in both fade reverse,
+    420ms cubic-bezier(0.7, 0, 0.18, 1) both slide reverse;
+}
+::view-transition-new(.nav-forward) {
+  --desloca: 64px;
+  animation:
+    240ms ease-out 160ms both fade,
+    420ms cubic-bezier(0.7, 0, 0.18, 1) both slide;
+}
+::view-transition-old(.nav-back) {
+  --desloca: 64px;
+  animation:
+    160ms ease-in both fade reverse,
+    420ms cubic-bezier(0.7, 0, 0.18, 1) both slide reverse;
+}
+::view-transition-new(.nav-back) {
+  --desloca: -64px;
+  animation:
+    240ms ease-out 160ms both fade,
+    420ms cubic-bezier(0.7, 0, 0.18, 1) both slide;
+}
+
+::view-transition-old(.revela-sai) {
+  animation: 150ms ease-out both fade reverse;
+}
+::view-transition-new(.revela-entra) {
+  animation:
+    260ms ease-out 120ms both fade,
+    420ms var(--ease-saida) both slide-y;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes slide {
+  from {
+    translate: var(--desloca) 0;
+  }
+}
+@keyframes slide-y {
+  from {
+    translate: 0 12px;
+  }
+}
+
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Movimento reduzido: nada desliza; o que sobra é troca instantânea. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+  .hero-linha,
+  .card-entra,
+  .surge {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "title": "Rumo: escolha o mundo visual",
+  "question": "O sorteio caiu no Bilhete de Rodoviária. Fica com ele, pega a alternativa ou sorteia de novo. O slider de cards que vira tela cheia (o pin) entra em qualquer opção.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Bilhete de Rodoviária",
+      "kicker": "THE ROLL",
+      "lineage": "Passagens de ônibus pré-impressas em papel carbonado, vias amarela e rosa, carimbo de guichê",
+      "thesis": "Cada destino é um bilhete: saída, poltrona e vaga impressos como numa passagem de verdade.",
+      "palette": ["#F4D23C", "#F2B8C6", "#FBF8EE", "#27308A", "#C7322B"],
+      "materials": ["papel carbonado amarelo e rosa", "tinta de impacto azul-carbono", "picote", "carimbo vermelho", "numerais de matricial"],
+      "viewport": "Foto do destino em tela cheia; nome do destino impresso como campo DESTINO; à direita, canhotos picotados com foto e vagas reais; embaixo, o bilhete de cotação funcionando (saída, passageiros, preço).",
+      "risk": "Se o picote e o carimbo virarem enfeite em tudo, cai em fantasia de passagem; o bilhete tem que ser o formulário, não a moldura.",
+      "raised": [
+        {"from": "challenger-cabaret", "raise": "Duas tintas e o papel, sem cinza: azul-carbono para texto, vermelho só para carimbo e ação."},
+        {"from": "challenger-cathode", "raise": "Todas as saídas do pacote aparecem ao mesmo tempo como decalque fraco de carbono; a escolhida é carimbada à frente."},
+        {"from": "challenger-steprow", "raise": "As saídas viram uma única linha do tempo sem quebra, com a marca de HOJE andando por ela."},
+        {"from": "challenger-papercut", "raise": "Profundidade só por sobreposição de vias de papel, nunca por sombra borrada."},
+        {"from": "challenger-cdrom", "raise": "No checkout o bilhete fica fixo e só o conteúdo dentro dele muda a cada etapa."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html"
+    },
+    {
+      "id": "model-pick",
+      "label": "Placa Turística Marrom",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Sinalização de atrativos turísticos das rodovias brasileiras",
+      "thesis": "Rumo como a placa marrom da estrada: cada destino anunciado com pictograma, seta e quilometragem.",
+      "palette": ["#5B3420", "#FFFFFF", "#0E6B3F", "#F1C21B", "#1A1A1A"],
+      "materials": ["chapa refletiva", "pictogramas brancos", "letra de sinalização rodoviária", "asfalto"],
+      "viewport": "Foto em tela cheia; o nome do destino numa placa marrom com pictograma e seta; os cards do slider são placas menores em fila, como na beira da estrada.",
+      "risk": "Pode soar oficial e pesado; o marrom em área grande escurece a página e afasta do claro e quente que você pediu.",
+      "html": ".impeccable/mocks/decision/pick.html"
+    },
+    {
+      "id": "challenger-cabaret",
+      "label": "Cartaz de Cabaré",
+      "verdict": "declined",
+      "lineage": "Cartazes de cabaré de Berlim em duas tintas",
+      "thesis": "Roteiro como programa de uma noite, ato por ato.",
+      "palette": ["#E8E000", "#0A0A0A"],
+      "materials": ["papel barato", "duas tintas sem meio-tom"],
+      "viewport": "Programa em coluna escalonada sobre preto.",
+      "case": "Dono de agência não se reconhece em expressionismo alemão; preto e amarelo ácido brigam com fotos de viagem.",
+      "risk": "Agressivo demais para turismo.",
+      "kept": "Compromisso total com duas tintas, sem cinza."
+    },
+    {
+      "id": "challenger-cathode",
+      "label": "Tubo Nixie",
+      "verdict": "declined",
+      "lineage": "Contadores de catodo com malha de ânodo",
+      "thesis": "Todos os valores presentes, um aceso à frente.",
+      "palette": ["#0D1220", "#FF7A1A", "#B08D57"],
+      "materials": ["malha de bronze", "brilho laranja"],
+      "viewport": "Números fantasmas atrás de uma tela de malha.",
+      "case": "Bonito para painel de controle, frio para vender viagem.",
+      "risk": "Escuro e técnico.",
+      "kept": "Todas as opções visíveis ao mesmo tempo, a escolhida em destaque."
+    },
+    {
+      "id": "challenger-steprow",
+      "label": "Bateria Eletrônica",
+      "verdict": "declined",
+      "lineage": "Sequenciadores de 16 passos dos anos 80",
+      "thesis": "Saídas como passos de uma sequência.",
+      "palette": ["#2A2A2A", "#E0412F", "#F28C28", "#F2D13A"],
+      "materials": ["teclas coloridas", "LED"],
+      "viewport": "Uma fileira de 16 teclas com luz correndo.",
+      "case": "Não conversa com viagem nem com quem compra viagem.",
+      "risk": "Brinquedo.",
+      "kept": "Uma linha do tempo única, sem quebra, com marcador de agora."
+    },
+    {
+      "id": "challenger-papercut",
+      "label": "Recorte de Papel",
+      "verdict": "declined",
+      "lineage": "Recortes folclóricos poloneses em camadas",
+      "thesis": "Profundidade feita só de papel colado.",
+      "palette": ["#D7263D", "#1B998B", "#F46036", "#2E294E"],
+      "materials": ["papel brilhante", "camadas coladas"],
+      "viewport": "Roseta simétrica em camadas.",
+      "case": "Folclore estrangeiro, sem ligação com o Brasil nem com reserva.",
+      "risk": "Decorativo.",
+      "kept": "Profundidade só por sobreposição, sem sombra."
+    },
+    {
+      "id": "challenger-cdrom",
+      "label": "Console de CD-ROM",
+      "verdict": "declined",
+      "lineage": "Interfaces de CD-ROM dos anos 90",
+      "thesis": "Moldura fixa, conteúdo trocando na janela.",
+      "palette": ["#9AA3AD", "#2B8C8C", "#6B4FA0"],
+      "materials": ["painel escovado", "botões em relevo"],
+      "viewport": "Console cinza com janelinha de vídeo.",
+      "case": "Datado e frio; não passa credibilidade de agência hoje.",
+      "risk": "Nostalgia sem propósito.",
+      "kept": "Moldura fixa em que só o conteúdo muda."
+    },
+    {
+      "id": "challenger-cityfold",
+      "label": "Cidade Dobrada",
+      "verdict": "declined",
+      "lineage": "Mapa surreal de cidade dormindo",
+      "thesis": "Bairros como dobras de cobertor sonhando climas diferentes.",
+      "palette": ["#14213D", "#E9C46A", "#F1FAEE"],
+      "materials": ["costura", "mapa dobrado"],
+      "viewport": "Cidade noturna dobrada como colcha.",
+      "case": "Poético, mas esconde a oferta e a ação de reservar.",
+      "risk": "Ninguém entende o que se vende.",
+      "kept": "Cada destino com uma cor própria, mantida em todo o fluxo."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "O padrão da categoria",
+    "thesis": "O site de agência que todo mundo espera, feito com capricho.",
+    "palette": ["#FFFFFF", "#111827", "#F59E0B"],
+    "materials": ["foto em tela cheia", "fonte condensada", "barra de busca"],
+    "viewport": "Foto cheia, título condensado à esquerda, cards de destino à direita, barra de busca e grade de pacotes abaixo, como no pin.",
+    "risk": "Idêntico a qualquer template de agência; não mostra nada que só a Rumo tem.",
+    "html": ".impeccable/mocks/decision/canon.html"
+  },
+  "steer": true
+}

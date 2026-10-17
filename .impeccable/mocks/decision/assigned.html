@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Bilhete</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;font-family:Arial Narrow,Arial,sans-serif;color:#27308A;background:#FBF8EE;position:relative}
+.photo{position:absolute;inset:0;background:linear-gradient(180deg,#8FB7C9 0%,#D9C8A4 45%,#C88A4E 62%,#6E4A2C 100%)}
+.dune{position:absolute;left:0;right:0;bottom:0;height:420px;background:#B9773E;clip-path:ellipse(70% 60% at 30% 100%)}
+nav{position:absolute;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;color:#FBF8EE}
+.logo{font-size:30px;font-weight:900;letter-spacing:.04em}
+.links{display:flex;gap:36px;font-size:15px}
+.field{position:absolute;left:56px;top:190px;color:#FBF8EE}
+.label{font-size:14px;letter-spacing:.2em}
+.dest{font-size:132px;line-height:.86;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+.uf{font-size:28px;margin-top:14px}
+.stubs{position:absolute;right:0;top:300px;display:flex;gap:18px;padding-right:40px}
+.stub{width:200px;height:300px;background:#F4D23C;position:relative}
+.stub .img{height:170px;background:#5E8C6A}
+.stub:nth-child(2){background:#F2B8C6}.stub:nth-child(2) .img{background:#3E6E8E}
+.stub:nth-child(3){background:#FBF8EE}.stub:nth-child(3) .img{background:#A86A3C}
+.stub .perf{height:0;border-top:3px dashed #27308A;margin:0 8px}
+.stub h3{font-size:24px;padding:12px 12px 4px;text-transform:uppercase}
+.stub .v{position:absolute;bottom:12px;left:12px;font-family:monospace;font-size:24px}
+.ticket{position:absolute;left:56px;bottom:56px;width:860px;height:150px;background:#F4D23C;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 220px}
+.ticket>div{padding:18px 20px;border-right:2px dashed #27308A}
+.ticket .k{font-size:13px;letter-spacing:.2em}
+.ticket .val{font-family:monospace;font-size:34px;margin-top:10px}
+.go{background:#C7322B;color:#FBF8EE;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;border:0}
+.stamp{position:absolute;left:770px;bottom:170px;width:150px;height:150px;border:5px solid #C7322B;border-radius:50%;color:#C7322B;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;transform:rotate(-14deg)}
+.count{position:absolute;right:56px;bottom:56px;color:#FBF8EE;font-family:monospace;font-size:64px}
+</style></head><body>
+<div class="photo"></div><div class="dune"></div>
+<nav><div class="logo">RUMO</div><div class="links"><span>Destinos</span><span>Pacotes</span><span>Minha reserva</span></div></nav>
+<div class="field"><div class="label">DESTINO</div><div class="dest">Lençóis<br>Maranhenses</div><div class="uf">Barreirinhas · MA</div></div>
+<div class="stubs">
+ <div class="stub"><div class="img"></div><div class="perf"></div><h3>Chapada Diamantina</h3><div class="v">07 VAGAS</div></div>
+ <div class="stub"><div class="img"></div><div class="perf"></div><h3>Fernando de Noronha</h3><div class="v">03 VAGAS</div></div>
+ <div class="stub"><div class="img"></div><div class="perf"></div><h3>Jalapão</h3><div class="v">12 VAGAS</div></div>
+</div>
+<div class="stamp">7 VAGAS</div>
+<div class="ticket">
+ <div><div class="k">SAÍDA</div><div class="val">14 NOV 26</div></div>
+ <div><div class="k">PASSAG.</div><div class="val">02</div></div>
+ <div><div class="k">DIAS</div><div class="val">05</div></div>
+ <div><div class="k">TOTAL</div><div class="val">4.980</div></div>
+ <button class="go">VER SAÍDAS</button>
+</div>
+<div class="count">01/06</div>
+</body></html>
