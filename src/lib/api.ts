@@ -54,7 +54,7 @@ async function request<T>(path: string, init?: { method?: string; body?: unknown
 }
 
 export const api = {
-  pacotes: () => request<Page<PacoteResumo>>("/pacotes?size=200&sort=precoBase"),
+  pacotes: () => request<Page<PacoteResumo>>("/pacotes?size=100&sort=precoBase"),
   pacote: (id: number) => request<Pacote>(`/pacotes/${id}`),
   saidas: (pacoteId: number) => request<Saida[]>(`/pacotes/${pacoteId}/saidas`),
   saida: (id: number) => request<Saida>(`/saidas/${id}`),
@@ -62,7 +62,7 @@ export const api = {
     request<Cotacao>("/cotacoes", { method: "POST", body }),
   criarCliente: (body: { nome: string; documento: string; email: string; telefone: string }) =>
     request<Cliente>("/clientes", { method: "POST", body }),
-  clientes: (page: number) => request<Page<Cliente>>(`/clientes?size=200&page=${page}`),
+  clientes: (page: number) => request<Page<Cliente>>(`/clientes?size=100&page=${page}`),
   criarReserva: (body: { clienteId: number; saidaId: number; qtdPassageiros: number }) =>
     request<Reserva>("/reservas", { method: "POST", body }),
   reserva: (codigo: string) => request<Reserva>(`/reservas/${encodeURIComponent(codigo)}`),

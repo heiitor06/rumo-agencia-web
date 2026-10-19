@@ -1,11 +1,9 @@
 // Espelho dos DTOs da api_agencia (dev.carlosheitor.agencia.*.dto). BigDecimal chega como number no JSON.
 
+/** Formato de página da API (Spring Data com serialization-mode: via-dto). Tamanho máximo: 100. */
 export type Page<T> = {
   content: T[];
-  totalElements: number;
-  totalPages: number;
-  number: number;
-  size: number;
+  page: { size: number; number: number; totalElements: number; totalPages: number };
 };
 
 export type Destino = {

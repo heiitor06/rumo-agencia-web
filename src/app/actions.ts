@@ -37,10 +37,10 @@ export type EstadoReserva = {
  */
 async function clienteExistente(documento: string, email: string): Promise<Cliente | undefined> {
   const mascara = mascaraApi(documento);
-  for (let pagina = 0; pagina < 20; pagina++) {
+  for (let pagina = 0; pagina < 50; pagina++) {
     const page = await api.clientes(pagina);
     const achado = page.content.find((c) => c.documento === mascara && c.email.toLowerCase() === email.toLowerCase());
-    if (achado || pagina >= page.totalPages - 1) return achado;
+    if (achado || pagina >= page.page.totalPages - 1) return achado;
   }
   return undefined;
 }
